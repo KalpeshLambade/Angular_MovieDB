@@ -1,12 +1,43 @@
-<!-- <main class="border border-red-500 mt-16">Home</main> -->
+<div class="container my-12 mx-auto px-4 md:px-12 mt-16 border">
+    <div class="flex flex-wrap -mx-1 lg:-mx-4 ">
+        <div *ngFor="let movie of movieResult" class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+            <article class="overflow-hidden rounded-lg shadow-lg">
 
+                <a href="#">
+                    <img alt="Placeholder" class="block h-auto w-full"
+                        [src]="'https://image.tmdb.org/t/p/w500'+ movie.poster_path">
+                </a>
 
-<main class="w-full min-h-screen pt-16 pb-10 bg-slate-800 mt-16">
-    <div class="flex flex-wrap justify-around w-full h-full">
-            <div class="w-[250px] h-[400px] mt-10 mb-5 border border-red-400" >
-                <img src="https://img.freepik.com/free-vector/colorful-bird-illustration-gradient_343694-1741.jpg?w=996&t=st=1703872487~exp=1703873087~hmac=192ac2efb902795727ec2587928b8d4e095fbd19464bdd1a849061d623136716" alt="img" />
-                <p class="text-center text-white pt-2">title</p>
-                <p>rating</p>
-            </div>
+                <header class="leading-tight p-2 md:p-4">
+                    <h1 class="text-lg">
+                        <a class="no-underline hover:underline text-black" href="#">
+                            {{movie.title}}
+                        </a>
+                    </h1>
+                    <p class="text-grey-darker text-lg text-blue-800 my-5">
+                        {{movie.release_date}}
+                    </p>
+                </header>
+
+                <footer class="flex items-center justify-between leading-none p-2 md:p-4">
+                    <a class="flex items-center no-underline hover:underline text-black" href="#">
+                        <img alt="Placeholder" class="block rounded-full h-14 w-14" [src]="'https://image.tmdb.org/t/p/w500'+ movie.backdrop_path">
+                        <p class="ml-5 text-xl text-red-600">
+                            {{movie.vote_average}}
+                        </p>
+                    </a>
+                    <a class="no-underline text-grey-darker hover:text-red-dark heart cursor-pointer" >
+                        <span class="hidden">Like</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#bfabbd"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M240,94c0,70-103.79,126.66-108.21,129a8,8,0,0,1-7.58,0C119.79,220.66,16,164,16,94A62.07,62.07,0,0,1,78,32c20.65,0,38.73,8.88,50,23.89C139.27,40.88,157.35,32,178,32A62.07,62.07,0,0,1,240,94Z">
+                            </path>
+                        </svg>
+                    </a>
+                </footer>
+            </article>
+        </div>
     </div>
-</main>
+</div>
+<app-loader *ngIf="isLoading"></app-loader>

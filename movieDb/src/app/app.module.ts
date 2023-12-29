@@ -7,6 +7,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UpcommingComponent } from './pages/upcomming/upcomming.component';
 import { TopRatedComponent } from './pages/top-rated/top-rated.component';
+import {HttpClientModule} from '@angular/common/http';
+import { LoaderComponent } from './components/loader/loader.component'
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { TopRatedComponent } from './pages/top-rated/top-rated.component';
     NavbarComponent,
     HomeComponent,
     UpcommingComponent,
-    TopRatedComponent
+    TopRatedComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
