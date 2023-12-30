@@ -1,62 +1,64 @@
 <div class="mt-16">
 
-    <main>
-        <div class="background-image">
-          <img src="https://i.ibb.co/6BHp0W8/broken-img.jpg" alt="Movie Background">
-        </div>
-        
-        <div class="container">
-          <div class="movie-details">
-            <div class="movie-info">
-              <h2 class="movie-title">Movie Title</h2>
-              <p class="movie-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac feugiat dolor.</p>
-              <div class="movie-genres">
-                <span class="genre">Action</span>
-                <span class="genre">Adventure</span>
-                <span class="genre">Sci-Fi</span>
-              </div>
-              <div class="movie-actions">
-                <button class="watch-button">Watch Now</button>
-              </div>
-            </div>
-            <div class="movie-poster">
-              <img src="https://i.ibb.co/6BHp0W8/broken-img.jpg" alt="Movie Poster">
-            </div>
+  <main>
+    <div class="background-image opacity-95 brightness-50 blur-sm">
+      <img [src]="'https://image.tmdb.org/t/p/w500' + movieData.backdrop_path" (error)="handleImageError($event)"
+        alt="Movie Background">
+    </div>
+
+    <div class="container">
+      <div class="movie-details">
+        <div class="movie-info">
+          <h2 class="movie-title">{{movieData.title | uppercase}}</h2>
+          <p class="movie-description">{{movieData.overview}}</p>
+          <div class="movie-genres">
+            <span class="genre" *ngFor="let genre of movieData.genres">{{genre.name}}</span>
+          </div>
+          <div class="movie-actions">
+            <button class="watch-button" routerLink="/error">Watch Now</button>
           </div>
         </div>
-      </main>
-    
-      <!-- Add this section to the end of your HTML file -->
-<div class="bg-gray-100 py-8">
-    <h2 class="text-2xl font-bold mb-4 text-center">Cast Members</h2>
-    <div class="flex space-x-4 overflow-x-auto p-4">
-        <!-- Iterate over your array of cast members -->
-        <!-- Each cast member is a card in the row -->
-        <!-- You can replace the placeholder values with actual data from your array -->
-        <div class="flex-shrink-0 w-48">
-            <div class="bg-white rounded-lg overflow-hidden shadow-md">
-                <img src="https://i.ibb.co/6BHp0W8/broken-img.jpg" alt="Cast Member 1" class="w-full h-32 object-cover">
-                <div class="p-4">
-                    <p class="text-xl font-semibold mb-2">Cast Member 1</p>
-                    <!-- Add additional information about the cast member if needed -->
-                </div>
-            </div>
+        <div class="movie-poster">
+          <img [src]="'https://image.tmdb.org/t/p/w500'+ movieData.poster_path" (error)="handleImageError($event)"
+            alt="Movie Poster">
         </div>
-
-        <!-- Repeat the structure for each cast member in your array -->
-
-        <div class="flex-shrink-0 w-48">
-            <div class="bg-white rounded-lg overflow-hidden shadow-md">
-                <img src="https://i.ibb.co/6BHp0W8/broken-img.jpg" alt="Cast Member 2" class="w-full h-32 object-cover">
-                <div class="p-4">
-                    <p class="text-xl font-semibold mb-2">Cast Member 2</p>
-                    <!-- Add additional information about the cast member if needed -->
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
-</div>
+  </main>
 
-    
+  <!-- Cast -->
+  <div class="bg-gray-100 pt-8">
+    <p class="text-2xl font-bold mb-4 text-center text-blue-600">Cast Members</p>
+    <div class="flex space-x-4 overflow-x-auto p-4">
+      <div class="flex-shrink-0 w-48" *ngFor="let person of cast">
+        <div class="bg-white rounded-lg overflow-hidden shadow-md h-80">
+          <img [src]="'https://image.tmdb.org/t/p/w500' + person.profile_path" (error)="handleImageError($event)"
+            alt="Cast Member 1" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <p class="text-xl font-semibold">{{person.name}}</p>
+            <p class="text-base text-blue-900">{{person.character}}</p>
+          </div>
+        </div>
+      </div>
 
+    </div>
+  </div>
+
+  <!-- Crew  -->
+  <div class="bg-gray-100 py-5">
+    <p class="text-2xl font-bold mb-4 text-center text-blue-600">Crew Members</p>
+    <div class="flex space-x-4 overflow-x-auto p-4">
+      <div class="flex-shrink-0 w-48" *ngFor="let person of crew">
+        <div class="bg-white rounded-lg overflow-hidden shadow-md h-80">
+          <img [src]="'https://image.tmdb.org/t/p/w500' + person.profile_path" (error)="handleImageError($event)"
+            alt="Cast Member 1" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <p class="text-xl font-semibold">{{person.name}}</p>
+            <p class="text-base text-blue-900">{{person.department}}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>

@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MovieApiResponse } from '../interface/response.interface';
+import { CastDetails, MovieApiResponse, MovieDetails } from '../interface/response.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -34,11 +34,22 @@ export class MoviedataService {
     let endpoint = "search";
     if(!movie) movie = "default";
     let params = this.params.append("query", movie).append("page", page);
-    console.log(params);
     return this.http.get<MovieApiResponse>(`${this.api_url}/${endpoint}/movie`,
       {
         params
       }
     )
+  }
+
+  getMovieDetail(id:number){
+    return this.http.get<MovieDetails>(`${this.api_url}/movie/${id}`,{
+      params: this.params
+    });
+  }
+
+  getMovieCastDetails(id:number){
+    return this.http.get<CastDetails>(`${this.api_url}/movie/${id}/credits`,{
+      params: this.params
+    });
   }
 }

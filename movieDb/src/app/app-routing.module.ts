@@ -26,7 +26,7 @@ const routes: Routes = [
     component: SearchPageComponent
   },
   {
-    path: 'movie-detail',
+    path: 'movie-detail/:id',
     component: MovieDetailComponent
   },
   {
