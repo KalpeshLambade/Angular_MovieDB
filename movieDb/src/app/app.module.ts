@@ -14,6 +14,7 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component'
 import { FormsModule } from '@angular/forms';
+import { MovieDetailComponent } from './pages/movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     MovieCardComponent,
     ErrorPageComponent,
     PageNotFoundComponent,
-    SearchPageComponent
+    SearchPageComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,

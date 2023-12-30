@@ -6,6 +6,7 @@ import { TopRatedComponent } from './pages/top-rated/top-rated.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
+import { MovieDetailComponent } from './pages/movie-detail/movie-detail.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'search',
     component: SearchPageComponent
+  },
+  {
+    path: 'movie-detail',
+    component: MovieDetailComponent
   },
   {
     path: 'error',
