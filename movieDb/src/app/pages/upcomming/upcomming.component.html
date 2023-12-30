@@ -1,2 +1,5 @@
-<main class="border border-red-500 mt-16">upcomming</main>
+<div class="container my-12 mx-auto px-4 md:px-12 mt-16 border flex flex-col items-center justify-center">
+    <app-movie-card [completeMovieList]="movieResult"></app-movie-card>
+    <app-loader *ngIf="isLoading"></app-loader>
+</div>
 
