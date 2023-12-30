@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MovieApiResponse, MovieResult } from 'src/app/interface/response.interface';
 import { MoviedataService } from 'src/app/services/moviedata.service';
 
@@ -9,11 +10,12 @@ import { MoviedataService } from 'src/app/services/moviedata.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  
   movieResult: MovieResult[] = [];
   isLoading = false;
   current_page = 1;
 
-  constructor(private movieService: MoviedataService) { }
+  constructor(private movieService: MoviedataService, private router:Router) { }
 
   ngOnInit() {
     this.fetchMovies();
@@ -27,8 +29,8 @@ export class HomeComponent implements OnInit {
         this.isLoading = false;
       },
       error: (err: HttpErrorResponse) => {
-        console.log(err.error);
         this.isLoading = false;
+        this.router.navigate(['/error']);
       }
     });
     this.current_page++;

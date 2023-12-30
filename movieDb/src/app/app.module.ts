@@ -8,7 +8,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { UpcommingComponent } from './pages/upcomming/upcomming.component';
 import { TopRatedComponent } from './pages/top-rated/top-rated.component';
 import {HttpClientModule} from '@angular/common/http';
-import { LoaderComponent } from './components/loader/loader.component'
+import { LoaderComponent } from './components/loader/loader.component';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component'
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { LoaderComponent } from './components/loader/loader.component'
     HomeComponent,
     UpcommingComponent,
     TopRatedComponent,
-    LoaderComponent
+    LoaderComponent,
+    MovieCardComponent,
+    ErrorPageComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
