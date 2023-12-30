@@ -11,7 +11,9 @@ import {HttpClientModule} from '@angular/common/http';
 import { LoaderComponent } from './components/loader/loader.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component'
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { SearchPageComponent } from './pages/search-page/search-page.component'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,12 +25,14 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     LoaderComponent,
     MovieCardComponent,
     ErrorPageComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SearchPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

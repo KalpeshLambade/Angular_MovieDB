@@ -5,31 +5,36 @@ import { UpcommingComponent } from './pages/upcomming/upcomming.component';
 import { TopRatedComponent } from './pages/top-rated/top-rated.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { SearchPageComponent } from './pages/search-page/search-page.component';
 
 const routes: Routes = [
   {
-    path : '',
-    component : HomeComponent
+    path: '',
+    component: HomeComponent
   },
   {
-    path : 'upcomming',
-    component : UpcommingComponent
+    path: 'upcomming',
+    component: UpcommingComponent
   },
   {
-    path : 'top',
-    component : TopRatedComponent
+    path: 'top',
+    component: TopRatedComponent
   },
   {
-    path : 'error',
-    component : ErrorPageComponent
+    path: 'search',
+    component: SearchPageComponent
   },
   {
-    path : 'page-not-found',
-    component : PageNotFoundComponent
+    path: 'error',
+    component: ErrorPageComponent
   },
   {
-    path : '**',
-    redirectTo : '/page-not-found'
+    path: 'page-not-found',
+    component: PageNotFoundComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/page-not-found'
   }
 ];
 
